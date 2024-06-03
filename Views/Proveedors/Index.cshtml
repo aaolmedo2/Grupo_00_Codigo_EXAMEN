@@ -27,26 +27,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_proveedor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ciudad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codigo_proveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codigo_proveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codigo_proveedor })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_proveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.codigo_proveedor }) |
+                @Html.ActionLink("Details", "Details", new { id = item.codigo_proveedor }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.codigo_proveedor })
+            </td>
+        </tr>
+    }
 
 </table>

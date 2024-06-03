@@ -6,65 +6,66 @@
     {
         @Html.AntiForgeryToken()
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <!-- Sidebar - Brand -->
-    @Html.ActionLink("TIENDA VIRTUAL", "Index", "Home", new { area = "" }, new { @class = "sidebar-brand d-flex align-items-center justify-content-center" })
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            @Html.ActionLink("TIENDA VIRTUAL", "Index", "Home", new { area = "" }, new { @class = "sidebar-brand d-flex align-items-center justify-content-center" })
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-    @*Nav Item - Pages Collapse Menu*@
-    <li class="nav-item active">
-        @Html.ActionLink("Ver Roles", "Ver Roles", "Home", new { area = "" }, new { @class = "nav-link" })
-        @*<a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>*@
-    </li>
-    @*Nav Item - Utilities Collapse Menu*@
-    <li class="nav-item active">
-        @Html.ActionLink("Clientes", "Index", "Clientes", new { area = "" }, new { @class = "nav-link" })
-        @*<a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>*@
-    </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("VerRoles", "Home")">
+                    <i class="fa-light fa-user"></i>
 
-    @*Nav Item - Utilities Collapse Menu*@
-    <li class="nav-item active">
-        @Html.ActionLink("Proveedores", "Index", "Proveedors", new { area = "" }, new { @class = "nav-link" })
-        @*<a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>*@
-    </li>
+                    <span>Ver Roles</span>
+                </a>
+            </li>
 
-    @*Nav Item - Utilities Collapse Menu*@
-    <li class="nav-item active">
-        @Html.ActionLink("Productos", "Index", "Productos", new { area = "" }, new { @class = "nav-link" })
-        @*<a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>*@
-    </li>
 
-    @*<li class="nav-item active">
-            @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
-        </li>*@
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-    <li class="nav-item active"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-</ul>
+            @*Nav Item - Utilities Collapse Menu*@
+            <li class="nav-item">
+                @*@Html.ActionLink("Clientes", "Index", "Clientes", new { area = "" }, new { @class = "nav-link" })*@
+                <a class="nav-link" href="@Url.Action("Index", "Clientes")">
+                    <i class="fa-thin fa-user-check"></i>
+                    <span>Clientes</span>
+                </a>
+            </li>
+
+            @*Nav Item - Utilities Collapse Menu*@
+            <li class="nav-item">
+                @* @Html.ActionLink("Proveedores", "Index", "Proveedors", new { area = "" }, new { @class = "nav-link" })*@
+                <a class="nav-link" href="@Url.Action("Index", "Proveedors")">
+                    <i class="fa-solid fa-farm"></i>
+                    <span>Proveedores</span>
+                </a>
+            </li>
+
+            @*Nav Item - Utilities Collapse Menu*@
+            <li class="nav-item">
+                @*@Html.ActionLink("Productos", "Index", "Productos", new { area = "" }, new { @class = "nav-link" })*@
+                <a class="nav-link" href="@Url.Action("Index", "Productos")">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Productos</span>
+                </a>
+            </li>
+
+            @*<li class="nav-item active"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>*@
+        </ul>
     }
 }
 else
 {
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    <!-- Sidebar - Brand -->
-    @Html.ActionLink("TIENDA VIRTUAL", "Index", "Home", new { area = "" }, new { @class = "sidebar-brand d-flex align-items-center justify-content-center" })
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-    <li hidden class="nav-item active">@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
-    <li  class="nav-item active">@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-</ul>
-    }
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Sidebar - Brand -->
+        @Html.ActionLink("TIENDA VIRTUAL", "Index", "Home", new { area = "" }, new { @class = "sidebar-brand d-flex align-items-center justify-content-center" })
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+        <li hidden class="nav-item active">@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+        <li class="nav-item active">@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+    </ul>
+}
 

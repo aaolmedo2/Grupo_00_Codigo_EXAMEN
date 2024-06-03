@@ -230,6 +230,8 @@
   <ItemGroup>
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
+    <Content Include="Content\img\fotor-2024060311110.jpg" />
+    <Content Include="Content\img\fotor-ai-20240603139.jpg" />
     <Content Include="Content\img\undraw_posting_photo.svg" />
     <Content Include="Content\img\undraw_profile.svg" />
     <Content Include="Content\img\undraw_profile_1.svg" />
@@ -2214,6 +2216,7 @@
     <Content Include="Views\Pedidos\Details.cshtml" />
     <Content Include="Views\Pedidos\Edit.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

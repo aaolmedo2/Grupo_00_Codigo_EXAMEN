@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\PROYECTO\\Grupo_00_Codigo_EXAMEN\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\WEB3\\Grupo_00_Codigo_EXAMEN\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\web3\\grupo_00_codigo_examen\\views\\shared\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\shared\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\web3\\grupo_00_codigo_examen\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +35,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_NavBar.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\WEB3\\Grupo_00_Codigo_EXAMEN\\Views\\Shared\\_NavBar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_NavBar.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\WEB3\\Grupo_00_Codigo_EXAMEN\\Views\\Shared\\_NavBar.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_NavBar.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T06:38:52.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_SideBar.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\WEB3\\Grupo_00_Codigo_EXAMEN\\Views\\Shared\\_SideBar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_SideBar.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\WEB3\\Grupo_00_Codigo_EXAMEN\\Views\\Shared\\_SideBar.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_SideBar.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB0AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T06:17:56.559Z",
+              "EditorCaption": ""
             }
           ]
         },
