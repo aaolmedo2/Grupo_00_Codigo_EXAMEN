@@ -35,6 +35,5 @@ namespace PyoyectoTest.Models
         public virtual DbSet<PedidosItems> PedidosItems { get; set; }
         public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Proveedor> Proveedor { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

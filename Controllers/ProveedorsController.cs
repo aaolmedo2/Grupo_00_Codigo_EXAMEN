@@ -10,6 +10,7 @@ using PyoyectoTest.Models;
 
 namespace PyoyectoTest.Controllers
 {
+    [Authorize]
     public class ProveedorsController : Controller
     {
         private ProyectoTiendaMVCEntities db = new ProyectoTiendaMVCEntities();
@@ -38,6 +39,22 @@ namespace PyoyectoTest.Controllers
         // GET: Proveedors/Create
         public ActionResult Create()
         {
+            // Opciones de Ciudades
+            ViewBag.Ciudades = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Quito", Value = "Quito" },
+                new SelectListItem { Text = "Guayaquil", Value = "Guayaquil" },
+                new SelectListItem { Text = "Cuenca", Value = "Cuenca" }
+            };
+
+            // Opciones de Provincias
+            ViewBag.Provincias = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Pichincha", Value = "Pichincha" },
+                new SelectListItem { Text = "Guayas", Value = "Guayas" },
+                new SelectListItem { Text = "Azuay", Value = "Azuay" }
+            };
+
             return View();
         }
 
@@ -46,7 +63,7 @@ namespace PyoyectoTest.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "codigo_proveedor,nombre_proveedor,ciudad,estado,Email")] Proveedor proveedor)
+        public ActionResult Create([Bind(Include = "codigo_proveedor,nombre_proveedor,ciudad,provincia,Email")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +95,7 @@ namespace PyoyectoTest.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "codigo_proveedor,nombre_proveedor,ciudad,estado,Email")] Proveedor proveedor)
+        public ActionResult Edit([Bind(Include = "codigo_proveedor,nombre_proveedor,ciudad,provincia,Email")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>PRODUCTOS</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,13 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NombreProducto)
+            NOMBRE
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Precio)
+            PRECIO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Detalles)
+            STOCK
         </th>
         <th></th>
     </tr>
@@ -33,7 +33,7 @@
             @Html.DisplayFor(modelItem => item.Precio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Detalles)
+            @Html.DisplayFor(modelItem => item.Stock)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductoID }) |

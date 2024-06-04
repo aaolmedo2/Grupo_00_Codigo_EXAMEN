@@ -19,13 +19,38 @@
             @Html.DisplayFor(model => model.NombreProducto)
         </dd>
 
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>*@
+
         <dt>
             @Html.DisplayNameFor(model => model.Imagen)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Imagen)
+            @*@Html.DisplayFor(model => model.Imagen)*@
+            <img src="~/Imagenes/Productos/@Model.Imagen" alt="Foto producto" class="img-fluid" width="100px" />
         </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Proveedor.nombre_proveedor)

@@ -10,6 +10,7 @@ using PyoyectoTest.Models;
 
 namespace PyoyectoTest.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
         private ProyectoTiendaMVCEntities db = new ProyectoTiendaMVCEntities();
@@ -48,7 +49,7 @@ namespace PyoyectoTest.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductoID,NombreProducto,Descripcion,Precio,Imagen,Detalles,codigo_proveedor")] Productos productos)
+        public ActionResult Create([Bind(Include = "ProductoID,NombreProducto,Descripcion,Precio,Imagen,Stock,codigo_proveedor")] Productos productos)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +83,7 @@ namespace PyoyectoTest.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductoID,NombreProducto,Descripcion,Precio,Imagen,Detalles,codigo_proveedor")] Productos productos)
+        public ActionResult Edit([Bind(Include = "ProductoID,NombreProducto,Descripcion,Precio,Imagen,Stock,codigo_proveedor")] Productos productos)
         {
             if (ModelState.IsValid)
             {
