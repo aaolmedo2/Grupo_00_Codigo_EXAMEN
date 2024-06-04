@@ -78,6 +78,22 @@ namespace PyoyectoTest.Controllers
         // GET: Proveedors/Edit/5
         public ActionResult Edit(int? id)
         {
+            // Opciones de Ciudades
+            ViewBag.Ciudades = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Quito", Value = "Quito" },
+                new SelectListItem { Text = "Guayaquil", Value = "Guayaquil" },
+                new SelectListItem { Text = "Cuenca", Value = "Cuenca" }
+            };
+
+            // Opciones de Provincias
+            ViewBag.Provincias = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Pichincha", Value = "Pichincha" },
+                new SelectListItem { Text = "Guayas", Value = "Guayas" },
+                new SelectListItem { Text = "Azuay", Value = "Azuay" }
+            };
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
