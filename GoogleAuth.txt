@@ -1,0 +1,6 @@
+1054807821635-vr03u9ha006v8fudto7f8pjtc8gb25ol.apps.googleusercontent.com
+
+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
+
+ClientId = "1054807821635",
+ClientSecret = "GOCSPX"

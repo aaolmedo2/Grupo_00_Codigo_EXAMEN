@@ -54,15 +54,15 @@ namespace PyoyectoTest
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "820107419634553",
+               appSecret: "e5c93bbbbbc8681551c4c114b839420d");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1054807821635-vr03u9ha006v8fudto7f8pjtc8gb25ol.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }

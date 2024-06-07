@@ -2,3 +2,7 @@
 obj/Debug/
 
 *.dll
+
+.vs/
+
+bin/
