@@ -32,41 +32,66 @@ namespace PyoyectoTest
 
         private void CrearRoles(ApplicationDbContext db)
         {
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-            if (!roleManager.RoleExists("SuperAdmin"))
+            var rolemanager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+
+            if (!rolemanager.RoleExists("Create"))
             {
-                roleManager.Create(new IdentityRole("SuperAdmin"));
+                rolemanager.Create(new IdentityRole("Create"));
+            }
+            if (!rolemanager.RoleExists("Edit"))
+            {
+                rolemanager.Create(new IdentityRole("Edit"));
             }
 
-            if (!roleManager.RoleExists("Administrador"))
+            if (!rolemanager.RoleExists("Details"))
             {
-                roleManager.Create(new IdentityRole("Administrador"));
+                rolemanager.Create(new IdentityRole("Details"));
             }
 
-            if (!roleManager.RoleExists("Proveedor"))
+            if (!rolemanager.RoleExists("Delete"))
             {
-                roleManager.Create(new IdentityRole("Proveedor"));
+                rolemanager.Create(new IdentityRole("Delete"));
             }
 
-            if (!roleManager.RoleExists("Cliente"))
+            if (!rolemanager.RoleExists("SuperAdmin"))
             {
-                roleManager.Create(new IdentityRole("Cliente"));
+                rolemanager.Create(new IdentityRole("SuperAdmin"));
             }
+
+            if (!rolemanager.RoleExists("Administrador"))
+            {
+                rolemanager.Create(new IdentityRole("Administrador"));
+            }
+
+            if (!rolemanager.RoleExists("Proveedor"))
+            {
+                rolemanager.Create(new IdentityRole("Proveedor"));
+            }
+
+            if (!rolemanager.RoleExists("Cliente"))
+            {
+                rolemanager.Create(new IdentityRole("Cliente"));
+            }
+
         }
 
         private void CrearSuperUsuario(ApplicationDbContext db)
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-            var user = userManager.FindByName("SuperAdmin");
-            if (user == null)
+            var user0 = userManager.FindByName("SuperAdmin");
+
+            if (user0 == null)
             {
-                user = new ApplicationUser
+                user0 = new ApplicationUser
                 {
-                    UserName = "superAdmin",
-                    Email = "superAdmin@hotmail.com"
+                    UserName = "SuperAdmin",
+                    Email = "superAdmin@hotmail.com",
+                    PhoneNumber = "1753898111",
+                    PasswordHash = new PasswordHasher().HashPassword("123")
                 };
-                var result = userManager.Create(user, "123");
+                userManager.Create(user0);
             }
+
         }
 
         private void AsignarPermisos(ApplicationDbContext db)
@@ -74,12 +99,48 @@ namespace PyoyectoTest
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
 
-            //var user = userManager.FindByName("SuperAdmin");
-            //if (!userManager.IsInRole(user.Id, "SuperAdmin"))
-            //{
-            //    userManager.AddToRole(user.Id, "SuperAdmin");
-            //}
+            var user = userManager.FindByName("SuperAdmin");
 
+            if (!userManager.IsInRole(user.Id, "Create"))
+            {
+                userManager.AddToRole(user.Id, "Create");
+            }
+            if (!userManager.IsInRole(user.Id, "Edit"))
+            {
+                userManager.AddToRole(user.Id, "Edit");
+            }
+            if (!userManager.IsInRole(user.Id, "Details"))
+            {
+                userManager.AddToRole(user.Id, "Details");
+            }
+            if (!userManager.IsInRole(user.Id, "Delete"))
+            {
+                userManager.AddToRole(user.Id, "Delete");
+            }
+
+            if (!userManager.IsInRole(user.Id, "SuperAdmin"))
+            {
+                userManager.AddToRole(user.Id, "SuperAdmin");
+            }
+
+
+            // Asegurarnos de que el usuario AGENTE existe
+            var user2 = userManager.FindByName("Administrador");
+            if (user2 == null)
+            {
+                user2 = new ApplicationUser
+                {
+                    UserName = "Administrador",
+                    Email = "administrador@hotmail.com",
+                    PasswordHash = new PasswordHasher().HashPassword("123")
+                };
+                userManager.Create(user2);// Puedes cambiar la contraseĆ±a por una segura            }
+
+            }
+            if (!userManager.IsInRole(user2.Id, "Administrador"))
+            {
+                userManager.AddToRole(user2.Id, "Administrador");
+            }
         }
     }
 }

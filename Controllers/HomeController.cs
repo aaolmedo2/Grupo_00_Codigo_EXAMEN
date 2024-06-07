@@ -26,11 +26,5 @@ namespace PyoyectoTest.Controllers
 
             return View();
         }
-        public ActionResult VerRoles()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

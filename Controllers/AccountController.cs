@@ -133,7 +133,8 @@ namespace PyoyectoTest.Controllers
                     return View(model);
             }
         }
-
+        [Authorize(Users = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -141,7 +142,8 @@ namespace PyoyectoTest.Controllers
         {
             return View();
         }
-
+        [Authorize(Users = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         //
         // POST: /Account/Register
         [HttpPost]

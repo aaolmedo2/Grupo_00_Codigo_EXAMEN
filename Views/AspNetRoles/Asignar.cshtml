@@ -1,0 +1,114 @@
+﻿@model PyoyectoTest.Models.AspNetRoles
+
+@{
+    ViewBag.Title = "Asignar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Asignar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<table class="table">
+    <tr>
+        <td><b>MÓDULO</b></td>
+        <td><b>VER</b></td>
+        <td><b>CREAR</b></td>
+        <td><b>ACTUALIZAR</b></td>
+        <td><b>ELIMINAR</b></td>
+    </tr>
+
+    <tr>
+        <td>ROLES</td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+    </tr>
+
+    <tr>
+        <td>CLIENTES</td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+    </tr>
+
+    <tr>
+        <td>PEDIDOS</td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+    </tr>
+
+    <tr>
+        <td>PRODUCTOS</td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+    </tr>
+
+    <tr>
+        <td>PROVEEDORES</td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+        <td><button type="button" class="switch-button" data-status="@Model.IsActive">@(Model.IsActive ? "On" : "Off")</button></td>
+    </tr>
+
+</table>
+
+    <div>
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.switch-button').each(function () {
+                var button = $(this);
+                var currentStatus = button.data('status');
+
+                if (currentStatus === true || currentStatus === "True") {
+                    button.css('background-color', 'green').text('On');
+                } else {
+                    button.css('background-color', 'red').text('Off');
+                }
+            });
+
+            $('.switch-button').click(function (e) {
+                e.preventDefault();
+                var button = $(this);
+                var currentStatus = button.data('status');
+
+                if (currentStatus === true || currentStatus === "True") {
+                    button.text('Off');
+                    button.data('status', false);
+                    button.css('background-color', 'red');
+                } else {
+                    button.text('On');
+                    button.data('status', true);
+                    button.css('background-color', 'green');
+                }
+
+                // Update the hidden input value
+                var inputName = button.attr('name');
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: inputName,
+                    value: button.data('status')
+                }).appendTo('form');
+            });
+        });
+    </script>
+}
