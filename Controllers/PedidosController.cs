@@ -40,7 +40,7 @@ namespace PyoyectoTest.Controllers
         // GET: Pedidos/Create
         public ActionResult Create()
         {
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "Nombre");
+            ViewBag.Productos = db.Productos.ToList();
             return View();
         }
 
@@ -49,17 +49,47 @@ namespace PyoyectoTest.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PedidoID,ClienteID,FechaPedido")] Pedidos pedidos)
+        public ActionResult Create([Bind(Include = "PedidoID,ClienteID,FechaPedido")] Pedidos pedido, int[] productosIds, int[] cantidades)
         {
             if (ModelState.IsValid)
             {
-                db.Pedidos.Add(pedidos);
-                db.SaveChanges();
+                string clienteId = User.Identity.Name;
+
+                if (int.TryParse(clienteId, out int clienteIdInt))
+                {
+                    Pedidos nuevoPedido = new Pedidos
+                    {
+                        ClienteID = clienteIdInt,
+                        FechaPedido = DateTime.Now 
+                    };
+
+                    db.Pedidos.Add(nuevoPedido);
+                    db.SaveChanges();
+
+                    if (productosIds != null && cantidades != null)
+                    {
+                        for (int i = 0; i < productosIds.Length; i++)
+                        {
+                            PedidosItems itemPedido = new PedidosItems
+                            {
+                                PedidoID = nuevoPedido.PedidoID,
+                                ProductoID = productosIds[i],
+                                Cantidad = cantidades[i]
+                            };
+
+                            db.PedidosItems.Add(itemPedido);
+                        }
+
+                        db.SaveChanges();
+                    }
+
+                }
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "Nombre", pedidos.ClienteID);
-            return View(pedidos);
+            ViewBag.Productos = db.Productos.ToList();
+            return View(pedido);
         }
 
         // GET: Pedidos/Edit/5
