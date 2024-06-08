@@ -172,6 +172,7 @@
     <Compile Include="Controllers\PedidosItemsController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProveedorsController.cs" />
+    <Compile Include="Filters\Filtro_VERIFICA_SESSION.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
