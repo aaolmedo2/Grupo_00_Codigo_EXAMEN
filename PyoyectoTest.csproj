@@ -169,6 +169,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\PedidosItemsController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProveedorsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2220,6 +2221,11 @@
     <Content Include="Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Index.cshtml" />
     <Content Include="Views\AspNetRoles\Asignar.cshtml" />
+    <Content Include="Views\PedidosItems\Create.cshtml" />
+    <Content Include="Views\PedidosItems\Delete.cshtml" />
+    <Content Include="Views\PedidosItems\Details.cshtml" />
+    <Content Include="Views\PedidosItems\Edit.cshtml" />
+    <Content Include="Views\PedidosItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

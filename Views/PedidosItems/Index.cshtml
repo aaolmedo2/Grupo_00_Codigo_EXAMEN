@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PyoyectoTest.Models.PedidosItems>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pedidos.PedidoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.NombreProducto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pedidos.PedidoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productos.NombreProducto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PedidoItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PedidoItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PedidoItemID })
+        </td>
+    </tr>
+}
+
+</table>
