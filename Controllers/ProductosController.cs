@@ -19,6 +19,13 @@ namespace PyoyectoTest.Controllers
         public ActionResult Index()
         {
             var productos = db.Productos.Include(p => p.Proveedor);
+            var productosSinStock = db.Productos.Where(p => p.Stock == 0).Select(p => p.NombreProducto).ToList();
+
+            if (productosSinStock.Any())
+            {
+                ViewBag.ProductosSinStock = productosSinStock;
+            }
+
             return View(productos.ToList());
         }
 

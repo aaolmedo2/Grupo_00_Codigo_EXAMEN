@@ -7,6 +7,20 @@
 
 <h2>PRODUCTOS</h2>
 
+@if (ViewBag.ProductosSinStock != null && ((List<string>)ViewBag.ProductosSinStock).Count > 0)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var productosSinStock = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ProductosSinStock));
+            Swal.fire({
+                title: 'Sin Stock',
+                text: 'Los siguientes productos no tienen stock: ' + productosSinStock.join(', '),
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -24,23 +38,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductoID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductoID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductoID })
+            </td>
+        </tr>
+    }
 
 </table>
