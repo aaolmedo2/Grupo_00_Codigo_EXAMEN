@@ -133,21 +133,17 @@ namespace PyoyectoTest.Controllers
                     return View(model);
             }
         }
-        [Authorize(Users = "Administrador")]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles ="Administrador")]
         //
         // GET: /Account/Register
-        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
-        [Authorize(Users = "Administrador")]
         [Authorize(Roles = "Administrador")]
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -393,6 +389,7 @@ namespace PyoyectoTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            Session["User"] = null;
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }

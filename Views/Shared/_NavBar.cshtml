@@ -1,5 +1,9 @@
 @using Microsoft.AspNet.Identity
 @using System.Web.Mvc
+@*Libs necesarias para las sessiones*@
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using PyoyectoTest.Models
 
 @if (Request.IsAuthenticated)
 {
@@ -17,6 +21,24 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
+                @*------------------Creacion de sessiones---------------------------*@
+                @*VARIABLE DE SESSION*@
+                @{
+                    var idusuario = User.Identity.GetUserId();
+
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    var usermanager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+
+                    var objuser = usermanager.FindById(idusuario);
+
+                    HttpContext.Current.Session["User"] = objuser; //obtiene el usuario logueado y lo guarda en una variable de session
+
+
+                    var nombre = objuser.UserName;
+                    var info = objuser.PhoneNumber;
+
+                }
+
 
                 @if (User.IsInRole("Cliente"))
                 {
@@ -24,7 +46,7 @@
                         <a class="nav-link" href="@Url.Action("Create", "Pedidos")" role="button">
                             <i class="fa fa-cart-shopping"></i>
                         </a>
-</li>
+                    </li>
                 }
 
                 <!-- Nav Item - Alerts -->
@@ -85,7 +107,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                            Hola @User.Identity.GetUserName()!
+                            @*Hola @User.Identity.GetUserName()!*@
+                            Hola @nombre!
                             @* @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {  })*@
                         </span>
                         <img class="img-profile rounded-circle"
