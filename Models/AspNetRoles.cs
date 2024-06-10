@@ -25,7 +25,5 @@ namespace PyoyectoTest.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
-        public bool IsActive { get; set; } // Este atributo representa el estado del switch
-
     }
 }

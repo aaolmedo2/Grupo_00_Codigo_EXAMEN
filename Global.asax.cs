@@ -34,24 +34,24 @@ namespace PyoyectoTest
         {
             var rolemanager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
 
-            if (!rolemanager.RoleExists("Create"))
-            {
-                rolemanager.Create(new IdentityRole("Create"));
-            }
-            if (!rolemanager.RoleExists("Edit"))
-            {
-                rolemanager.Create(new IdentityRole("Edit"));
-            }
+            //if (!rolemanager.RoleExists("Create"))
+            //{
+            //    rolemanager.Create(new IdentityRole("Create"));
+            //}
+            //if (!rolemanager.RoleExists("Edit"))
+            //{
+            //    rolemanager.Create(new IdentityRole("Edit"));
+            //}
 
-            if (!rolemanager.RoleExists("Details"))
-            {
-                rolemanager.Create(new IdentityRole("Details"));
-            }
+            //if (!rolemanager.RoleExists("Details"))
+            //{
+            //    rolemanager.Create(new IdentityRole("Details"));
+            //}
 
-            if (!rolemanager.RoleExists("Delete"))
-            {
-                rolemanager.Create(new IdentityRole("Delete"));
-            }
+            //if (!rolemanager.RoleExists("Delete"))
+            //{
+            //    rolemanager.Create(new IdentityRole("Delete"));
+            //}
 
             if (!rolemanager.RoleExists("SuperAdmin"))
             {
@@ -87,9 +87,8 @@ namespace PyoyectoTest
                     UserName = "SuperAdmin",
                     Email = "superAdmin@hotmail.com",
                     PhoneNumber = "1753898111",
-                    PasswordHash = new PasswordHasher().HashPassword("123")
                 };
-                userManager.Create(user0);
+                userManager.Create(user0, "Admin123");
             }
 
         }
@@ -101,22 +100,22 @@ namespace PyoyectoTest
 
             var user = userManager.FindByName("SuperAdmin");
 
-            if (!userManager.IsInRole(user.Id, "Create"))
-            {
-                userManager.AddToRole(user.Id, "Create");
-            }
-            if (!userManager.IsInRole(user.Id, "Edit"))
-            {
-                userManager.AddToRole(user.Id, "Edit");
-            }
-            if (!userManager.IsInRole(user.Id, "Details"))
-            {
-                userManager.AddToRole(user.Id, "Details");
-            }
-            if (!userManager.IsInRole(user.Id, "Delete"))
-            {
-                userManager.AddToRole(user.Id, "Delete");
-            }
+            //if (!userManager.IsInRole(user.Id, "Create"))
+            //{
+            //    userManager.AddToRole(user.Id, "Create");
+            //}
+            //if (!userManager.IsInRole(user.Id, "Edit"))
+            //{
+            //    userManager.AddToRole(user.Id, "Edit");
+            //}
+            //if (!userManager.IsInRole(user.Id, "Details"))
+            //{
+            //    userManager.AddToRole(user.Id, "Details");
+            //}
+            //if (!userManager.IsInRole(user.Id, "Delete"))
+            //{
+            //    userManager.AddToRole(user.Id, "Delete");
+            //}
 
             if (!userManager.IsInRole(user.Id, "SuperAdmin"))
             {
