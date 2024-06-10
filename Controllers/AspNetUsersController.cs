@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -14,15 +15,14 @@ namespace PyoyectoTest.Controllers
     public class AspNetUsersController : Controller
     {
         private ProyectoTiendaMVCEntities db = new ProyectoTiendaMVCEntities();
-
         // GET: AspNetUsers
         public ActionResult Index()
         {
             string query = @"
-            SELECT u.Id AS UserId, u.UserName, r.Name AS RoleName, u.Email
-            FROM AspNetUsers u
-            JOIN AspNetUserRoles ur ON u.Id = ur.UserId
-            JOIN AspNetRoles r ON ur.RoleId = r.Id";
+                            SELECT u.Id AS UserId, u.UserName, ISNULL(r.Name, 'Sin Rol') AS RoleName, u.Email
+                            FROM AspNetUsers u
+                            LEFT JOIN AspNetUserRoles ur ON u.Id = ur.UserId
+                            LEFT JOIN AspNetRoles r ON ur.RoleId = r.Id";
 
             var usersWithRoles = db.Database.SqlQuery<UserViewModel>(query).ToList();
 
@@ -57,8 +57,8 @@ namespace PyoyectoTest.Controllers
             {
                 Id = Guid.NewGuid().ToString(),
                 EmailConfirmed = false,
-                SecurityStamp = Guid.NewGuid().ToString(),
                 PasswordHash = new PasswordHasher().HashPassword("123"), // Contraseña predeterminada
+                SecurityStamp = Guid.NewGuid().ToString(),
                 PhoneNumber = null,
                 PhoneNumberConfirmed = false,
                 TwoFactorEnabled = false,
@@ -85,6 +85,9 @@ namespace PyoyectoTest.Controllers
 
                 // Asignar nuevamente la contraseña predeterminada hasheada
                 aspNetUsers.PasswordHash = new PasswordHasher().HashPassword("123");
+
+                //GEnerar SecurityStamp
+                aspNetUsers.SecurityStamp = string.IsNullOrEmpty(aspNetUsers.SecurityStamp) ? Guid.NewGuid().ToString() : aspNetUsers.SecurityStamp;
 
                 // Agregar el nuevo usuario a la base de datos y guardar los cambios
                 db.AspNetUsers.Add(aspNetUsers);
