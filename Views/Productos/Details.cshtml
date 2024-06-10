@@ -63,6 +63,18 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductoID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProductoID }) |*@
+    <a href="@Url.Action("Edit", "Productos", new {  id = Model.ProductoID })" class="btn btn-warning btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-pen"></i>
+        </span>
+        <span class="text">Edit</span>
+    </a>
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a href="@Url.Action("Index", "Productos")" class="btn btn-secondary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-left"></i>
+        </span>
+        <span class="text">Back to List</span>
+    </a>
 </p>

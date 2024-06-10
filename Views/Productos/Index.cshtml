@@ -22,13 +22,13 @@
     </script>
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
-    @*<a href="@Url.Action("Create", "Productos")" class="btn btn-success btn-icon-split">
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Action("Create", "Productos")" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
         <span class="text">Create New</span>
-    </a>*@
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -64,7 +64,7 @@
 
                 <a href="@Url.Action("Edit", "Productos", new {  id = item.ProductoID })" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-pen"></i>
                     </span>
                     <span class="text">Edit</span>
                 </a>
