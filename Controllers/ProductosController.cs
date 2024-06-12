@@ -10,11 +10,11 @@ using PyoyectoTest.Models;
 
 namespace PyoyectoTest.Controllers
 {
-    [Authorize(Roles = "Cliente,Administrador,SuperAdmin")]
+    //[Authorize(Roles = "Cliente,Administrador,SuperAdmin")]
     public class ProductosController : Controller
     {
         private ProyectoTiendaMVCEntities db = new ProyectoTiendaMVCEntities();
-
+        [Authorize(Roles = "Cliente,Administrador,SuperAdmin")]
         // GET: Productos
         public ActionResult Index()
         {
@@ -28,7 +28,7 @@ namespace PyoyectoTest.Controllers
 
             return View(productos.ToList());
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // GET: Productos/Details/5
         public ActionResult Details(int? id)
         {
@@ -43,14 +43,14 @@ namespace PyoyectoTest.Controllers
             }
             return View(productos);
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // GET: Productos/Create
         public ActionResult Create()
         {
             ViewBag.codigo_proveedor = new SelectList(db.Proveedor, "codigo_proveedor", "nombre_proveedor");
             return View();
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // POST: Productos/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -68,7 +68,7 @@ namespace PyoyectoTest.Controllers
             ViewBag.codigo_proveedor = new SelectList(db.Proveedor, "codigo_proveedor", "nombre_proveedor", productos.codigo_proveedor);
             return View(productos);
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // GET: Productos/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -84,7 +84,7 @@ namespace PyoyectoTest.Controllers
             ViewBag.codigo_proveedor = new SelectList(db.Proveedor, "codigo_proveedor", "nombre_proveedor", productos.codigo_proveedor);
             return View(productos);
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // POST: Productos/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -101,7 +101,7 @@ namespace PyoyectoTest.Controllers
             ViewBag.codigo_proveedor = new SelectList(db.Proveedor, "codigo_proveedor", "nombre_proveedor", productos.codigo_proveedor);
             return View(productos);
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // GET: Productos/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -116,7 +116,7 @@ namespace PyoyectoTest.Controllers
             }
             return View(productos);
         }
-
+        [Authorize(Roles = "Administrador,SuperAdmin")]
         // POST: Productos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
