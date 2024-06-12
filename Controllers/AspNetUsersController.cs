@@ -129,6 +129,15 @@ namespace PyoyectoTest.Controllers
             {
                 return HttpNotFound();
             }
+
+            // Obtener la lista de roles
+            var roles = db.AspNetRoles.ToList();
+            ViewBag.Roles = new SelectList(roles, "Id", "Name");
+
+            // Obtener los roles asignados al usuario
+            var userRoles = aspNetUsers.AspNetRoles.Select(r => r.Id).ToArray();
+            ViewBag.UserRoles = userRoles;
+
             return View(aspNetUsers);
         }
 
@@ -137,15 +146,52 @@ namespace PyoyectoTest.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUsers aspNetUsers, string[] selectedRoles)
+        public ActionResult Edit([Bind(Include = "Id,Email,UserName")] AspNetUsers aspNetUsers, string[] selectedRoles)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(aspNetUsers).State = EntityState.Modified;
+                // Obtener el usuario actual de la base de datos
+                var user = db.AspNetUsers.Find(aspNetUsers.Id);
+
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+
+                // Actualizar los campos del usuario
+                user.Email = aspNetUsers.Email;
+                user.UserName = aspNetUsers.UserName;
+
+                // Eliminar todos los roles asignados actualmente
+                user.AspNetRoles.Clear();
+
+                // Asignar los roles seleccionados
+                if (selectedRoles != null)
+                {
+                    foreach (var roleId in selectedRoles)
+                    {
+                        var role = db.AspNetRoles.Find(roleId);
+                        if (role != null)
+                        {
+                            user.AspNetRoles.Add(role);
+                        }
+                    }
+                }
+
+                // Guardar cambios en la base de datos
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
+
+            // Si algo sale mal, recargar la lista de roles
+            var roles = db.AspNetRoles.ToList();
+            ViewBag.Roles = new SelectList(roles, "Id", "Name");
+
+            // Obtener los roles asignados al usuario
+            var userRoles = aspNetUsers.AspNetRoles.Select(r => r.Id).ToArray();
+            ViewBag.UserRoles = userRoles;
 
             return View(aspNetUsers);
         }
