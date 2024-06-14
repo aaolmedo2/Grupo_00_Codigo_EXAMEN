@@ -22,13 +22,19 @@
     </script>
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
-    @*<a href="@Url.Action("Create", "Productos")" class="btn btn-success btn-icon-split">
-        <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Create New</span>
-    </a>*@
+
+
+    @if (!User.IsInRole("Cliente"))
+    {
+        @*@Html.ActionLink("Create New", "Create")*@
+        <a href="@Url.Action("Create", "Productos")" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span class="text">Create New</span>
+        </a>
+    }
+
 </p>
 <table class="table">
     <tr>
@@ -58,30 +64,36 @@
             </td>
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductoID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductoID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductoID })*@
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductoID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductoID })*@
 
 
-                <a href="@Url.Action("Edit", "Productos", new {  id = item.ProductoID })" class="btn btn-warning btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                    <span class="text">Edit</span>
-                </a>
 
-                <a href="@Url.Action("Details", "Productos", new {  id = item.ProductoID  })" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-info-circle"></i>
-                    </span>
-                    <span class="text">Details</span>
-                </a>
+                @if (!User.IsInRole("Cliente"))
+                {
+                    <a href="@Url.Action("Edit", "Productos", new {  id = item.ProductoID })" class="btn btn-warning btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-pen"></i>
+                        </span>
+                        <span class="text">Edit</span>
+                    </a>
 
-                <a href="@Url.Action("Delete", "Productos", new {  id = item.ProductoID  })" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                    </span>
-                    <span class="text">Delete</span>
-                </a>
+                    <a href="@Url.Action("Details", "Productos", new {  id = item.ProductoID  })" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                        <span class="text">Details</span>
+                    </a>
+
+                    <a href="@Url.Action("Delete", "Productos", new {  id = item.ProductoID  })" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                        <span class="text">Delete</span>
+                    </a>
+                }
+
+
 
             </td>
         </tr>

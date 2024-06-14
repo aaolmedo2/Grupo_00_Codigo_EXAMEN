@@ -10,7 +10,7 @@ using PyoyectoTest.Models;
 
 namespace PyoyectoTest.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Proveedor,Administrador,SuperAdmin")]
     public class ProveedorsController : Controller
     {
         private ProyectoTiendaMVCEntities db = new ProyectoTiendaMVCEntities();

@@ -133,7 +133,7 @@ namespace PyoyectoTest.Controllers
                     return View(model);
             }
         }
-        [Authorize(Roles ="Administrador")]
+        [Authorize(Roles = "Administrador")]
         //
         // GET: /Account/Register
         public ActionResult Register()

@@ -27,5 +27,6 @@ namespace PyoyectoTest.Models
         public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
         public bool IsActive { get; set; } // Este atributo representa el estado del switch
 
+
     }
 }

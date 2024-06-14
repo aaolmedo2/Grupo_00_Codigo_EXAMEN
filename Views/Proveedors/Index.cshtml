@@ -8,21 +8,27 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Action("Create", "Proveedors")" class="btn btn-success btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Create New</span>
+    </a>
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_proveedor)
+            NOMBRE PROVEEDOR
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ciudad)
+            CIUDAD
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.provincia)
+            PROVINCIA
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            EMAIL
         </th>
         <th></th>
     </tr>
@@ -42,9 +48,32 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codigo_proveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codigo_proveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codigo_proveedor })
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.codigo_proveedor }) |
+        @Html.ActionLink("Details", "Details", new { id=item.codigo_proveedor }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.codigo_proveedor })*@
+
+
+            <a href="@Url.Action("Edit", "Proveedors", new {  id=item.codigo_proveedor })" class="btn btn-warning btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-pen"></i>
+                </span>
+                <span class="text">Edit</span>
+            </a>
+
+            <a href="@Url.Action("Details", "Proveedors", new {  id=item.codigo_proveedor })" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-info-circle"></i>
+                </span>
+                <span class="text">Details</span>
+            </a>
+
+            <a href="@Url.Action("Delete", "Proveedors", new {  id=item.codigo_proveedor  })" class="btn btn-danger btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-trash"></i>
+                </span>
+                <span class="text">Delete</span>
+            </a>
+
         </td>
     </tr>
 }
