@@ -2234,6 +2234,8 @@
     <Content Include="Views\AspNetUsers\Details.cshtml" />
     <Content Include="Views\AspNetUsers\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\Pedidos\Resumen.cshtml" />
+    <Content Include="Views\Pedidos\Detalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

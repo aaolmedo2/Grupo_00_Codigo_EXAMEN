@@ -1,0 +1,37 @@
+﻿@model PyoyectoTest.Models.PedidosItems
+
+@{
+    ViewBag.Title = "Detalles del Pedido";
+}
+
+<h2>Detalles del Pedido @ViewBag.PedidoId</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+            <th>SubTotal</th>
+            <th>IVA 12%</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreProducto</td>
+                <td>@item.PrecioUnitario</td>
+                <td>@item.Cantidad</td>
+                <td>@item.SubTotal</td>
+                <td>@item.IVA</td>
+                <td>@item.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Volver a la Lista de Pedidos", "Index")
+</div>

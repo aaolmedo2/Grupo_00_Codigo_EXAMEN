@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\views\\pedidos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\pedidos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\views\\pedidos\\resumen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\pedidos\\resumen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\views\\pedidos\\detalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\pedidos\\detalles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\views\\pedidos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\pedidos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|c:\\users\\asus\\desktop\\py-w3\\grupo_00_codigo_examen\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +58,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Detalles.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Detalles.cshtml",
+              "RelativeDocumentMoniker": "Views\\Pedidos\\Detalles.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Detalles.cshtml",
+              "RelativeToolTip": "Views\\Pedidos\\Detalles.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-14T20:29:29.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Pedidos\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Pedidos\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-14T20:29:01.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Resumen.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Resumen.cshtml",
+              "RelativeDocumentMoniker": "Views\\Pedidos\\Resumen.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Resumen.cshtml",
+              "RelativeToolTip": "Views\\Pedidos\\Resumen.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-14T20:28:12.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PedidosController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Controllers\\PedidosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PedidosController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Controllers\\PedidosController.cs",
+              "RelativeToolTip": "Controllers\\PedidosController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T20:14:29.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Pedidos\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Pedidos\\Create.cshtml",
+              "RelativeToolTip": "Views\\Pedidos\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-14T20:23:37.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductosController.cs",
@@ -51,13 +136,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Productos\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Productos\\Index.cshtml",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\PY-W3\\Grupo_00_Codigo_EXAMEN\\Views\\Productos\\Index.cshtml",
               "RelativeToolTip": "Views\\Productos\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-12T05:11:02.429Z",
               "EditorCaption": ""
