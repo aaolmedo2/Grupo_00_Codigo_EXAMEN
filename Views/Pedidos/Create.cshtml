@@ -6,7 +6,7 @@
 
 <h2>Crear Pedido</h2>
 
-@using (Html.BeginForm("CrearPedido", "Pedidos", FormMethod.Post, new { id = "crearPedidoForm" }))
+@using (Html.BeginForm("Crear", "Pedidos", FormMethod.Post, new { id = "crearPedidoForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -27,20 +27,36 @@
                 <thead>
                     <tr>
                         <th>Producto</th>
+                        <th>Precio</th>
                         <th>Cantidad</th>
-                    </tr> 
+                        <th>Total</th>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach (var producto in ViewBag.Productos)
                     {
                         <tr>
                             <td>@producto.NombreProducto</td>
+                            <td>@producto.Precio</td>
                             <td>
                                 <input type="hidden" name="productosIds" value="@producto.ProductoID" />
-                                <input type="number" name="cantidades" value="0" min="0" max="@producto.Stock" class="cantidad-input" data-producto="@producto.NombreProducto" />
+                                <input type="number" name="cantidades" value="0" min="0" max="@producto.Stock" class="cantidad-input" data-producto="@producto.NombreProducto" data-precio="@producto.Precio" />
                             </td>
+                            <td class="producto-total">0.00</td>
                         </tr>
                     }
+                    <tr>
+                        <td colspan="3" class="text-right">Subtotal:</td>
+                        <td id="subtotal">0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-right">IVA (12%):</td>
+                        <td id="iva">0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                        <td id="total"><strong>0.00</strong></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -80,6 +96,9 @@
                 <p>Fecha del Pedido: <span id="modalFechaPedido"></span></p>
                 <p>Productos:</p>
                 <ul id="modalProductos"></ul>
+                <p>Subtotal: <span id="modalSubtotal">0.00</span></p>
+                <p>IVA (12%): <span id="modalIva">0.00</span></p>
+                <p><strong>Total: <span id="modalTotal">0.00</span></strong></p>
                 <p>¿Está seguro de que desea crear este pedido?</p>
             </div>
             <div class="modal-footer">
@@ -112,6 +131,24 @@
                 }
             });
 
+            $('.cantidad-input').on('input', function () {
+                var subtotal = 0;
+                $('.cantidad-input').each(function () {
+                    var precio = parseFloat($(this).data('precio'));
+                    var cantidad = parseInt($(this).val());
+                    var total = precio * cantidad;
+                    subtotal += total;
+                    $(this).closest('tr').find('.producto-total').text(total.toFixed(2));
+                });
+                $('#subtotal').text(subtotal.toFixed(2));
+
+                var iva = subtotal * 0.12;
+                $('#iva').text(iva.toFixed(2));
+
+                var total = subtotal + iva;
+                $('#total').html('<strong>' + total.toFixed(2) + '</strong>');
+            });
+
             $('#crearBtn').click(function (e) {
                 e.preventDefault();
                 // Obtener valores del formulario
@@ -119,19 +156,30 @@
                 $('#modalFechaPedido').text(fechaPedido);
 
                 var productos = [];
+                var subtotal = 0;
                 $('.cantidad-input').each(function () {
-                    var cantidad = $(this).val();
+                    var cantidad = parseInt($(this).val());
                     var producto = $(this).data('producto');
+                    var precio = parseFloat($(this).data('precio'));
+                    var total = precio * cantidad;
+                    subtotal += total;
                     if (cantidad > 0) {
-                        productos.push(producto + ": " + cantidad);
+                        productos.push(producto + " (Precio: " + precio.toFixed(2) + ", Cantidad: " + cantidad + ", Total: " + total.toFixed(2) + ")");
                     }
                 });
+
+                var iva = subtotal * 0.12;
+                var totalCompra = subtotal + iva;
 
                 var $modalProductos = $('#modalProductos');
                 $modalProductos.empty();
                 $.each(productos, function (index, producto) {
                     $modalProductos.append('<li>' + producto + '</li>');
                 });
+
+                $('#modalSubtotal').text(subtotal.toFixed(2));
+                $('#modalIva').text(iva.toFixed(2));
+                $('#modalTotal').text(totalCompra.toFixed(2));
 
                 $('#confirmModal').modal('show');
             });
@@ -142,3 +190,4 @@
         });
     </script>
 }
+
